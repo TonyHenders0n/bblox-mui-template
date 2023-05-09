@@ -5,26 +5,16 @@ import {
   drawerClasses,
   styled,
   Drawer as MuiDrawer,
-  Divider,
   IconButton,
   useTheme,
-  paperClasses,
-  Box,
-  Stack,
+  paperClasses, 
 } from "@mui/material";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import {
-  DrawerComponent,
-  DrawerProps,
-  DrawerState,
-  DrawerVariant,
-} from "../drawer.types";
-import { useDrawer } from "../drawer-provider/drawer-context";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft"; 
+import { useDrawer } from "../drawer-provider/drawer-context"; 
+import { Scrollbar } from "src/components/scrollbar";
 import { closedMixin, openedMixin } from "../drawer-provider/drawer-mixins";
-import { Logo } from "src/components/logo";
-import { RouterLink } from "src/components/router-link";
-import { TenantSwitch } from "src/layouts/dashboard/tenant-switch";
-import { paths } from "src/paths";
+import { DrawerComponent, DrawerProps, DrawerState, DrawerVariant } from "../drawer.types";
+ 
 
 // export const DrawerHeader = styled("div")(({ theme }) => ({}));
 
@@ -35,7 +25,6 @@ export const DrawerHeader = styled("div")(({ theme }) => ({
   padding: theme.spacing(0, 1),
   ...theme.mixins.toolbar,
 }));
-
 
 const showCloseButton: Record<DrawerVariant, boolean> = {
   temporary: true,
@@ -104,53 +93,64 @@ export const Drawer: DrawerComponent = ({
       role="menu"
       aria-hidden={state === "close"}
       onClose={close}
+      sx={sx}
       PaperProps={{
         sx: {
           ...(drawerStyleProps?.paper?.cssVars || {}),
           ...(drawerStyleProps?.paper?.cssStyles || {}),
         },
       }}
-      sx={sx}
+      
       {...rest}
     >
-      <DrawerHeader>
-      {!underAppBar && showCloseButton[variant] && (
-            <IconButton onClick={switchState}>
-              <ChevronLeftIcon />
-            </IconButton>
-          )}
-        {/* <Stack
-          alignItems="center"
-          direction="row"
-          spacing={2}
-          sx={{ p: 3 }}
-        >
-          <Box
-            component={RouterLink}
-            href={paths.index}
-            sx={{
-              borderColor: "var(--nav-logo-border)",
-              borderRadius: 1,
-              borderStyle: "solid",
-              borderWidth: 1,
-              display: "flex",
-              height: 40,
-              p: "4px",
-              width: 40,
-            }}
-          >
-            <Logo />
-          </Box>
-          <TenantSwitch sx={{ flexGrow: 1 }} />
+      <Scrollbar
+        sx={{
+          height: "100%",
+          "& .simplebar-content": {
+            height: "100%",
+          },
+          "& .simplebar-scrollbar:before": {
+            background: "var(--nav-scrollbar-color)",
+          },
+        }}
+      >
+        <DrawerHeader>
+          {/* {state === "open" && (
+            <Stack
+              alignItems="center"
+              direction="row"
+              spacing={2}
+              sx={{ p: 3 }}
+            >
+              <Box
+                component={RouterLink}
+                href={paths.index}
+                sx={{
+                  borderColor: "var(--nav-logo-border)",
+                  borderRadius: 1,
+                  borderStyle: "solid",
+                  borderWidth: 1,
+                  display: "flex",
+                  height: 40,
+                  p: "4px",
+                  width: 40,
+                }}
+              >
+                <Logo />
+              </Box>
+              <TenantSwitch sx={{ flexGrow: 1 }} />
+            </Stack>
+          )} */}
           {!underAppBar && showCloseButton[variant] && (
             <IconButton onClick={switchState}>
               <ChevronLeftIcon />
             </IconButton>
           )}
-        </Stack> */}
-      </DrawerHeader>
-      {/* <Divider /> */}
-      {children}
+ 
+        </DrawerHeader>
+        {/* <Divider /> */}
+        {children}
+      </Scrollbar>
     </MuiDrawer>
   );
 };

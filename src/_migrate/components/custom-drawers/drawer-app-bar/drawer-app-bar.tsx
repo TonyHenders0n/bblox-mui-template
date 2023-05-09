@@ -8,7 +8,7 @@ import {
   Theme,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { useDrawer } from "../drawer-provider/drawer-context";
+import { useDrawer } from "../../custom-drawers/drawer-provider/drawer-context";
 import { AppBarProps as MuiAppBarProps } from "@mui/material";
 import { DrawerState, DrawerVariant } from "../drawer.types";
 

@@ -22,12 +22,17 @@ import { useMobileNav } from "./use-mobile-nav";
 //   DrawerProvider,
 // } from "bblox-react-core";
 import { mockDrawerNavigation } from "./drawer.mock";
-import {
-  Drawer,
-  DrawerContent,
-  DrawerProvider,
-} from "src/_migrate/components/drawers";
-import { Select, ValueRating } from "bblox-react-core";
+
+// import {
+//   Select,
+//   ValueRating,
+//   DrawerProvider,
+//   Drawer,
+//   DrawerContent,
+// } from "bblox-react-core";
+import { DrawerProvider } from "src/_migrate/components/custom-drawers/drawer-provider/drawer.provider";
+import { Drawer } from "src/_migrate/components/custom-drawers/drawer";
+import { DrawerContent } from "src/_migrate/components/custom-drawers/drawer-content";
 const SIDE_NAV_WIDTH: number = 280;
 
 const VerticalLayoutRoot = styled("div")(({ theme }) => ({
@@ -196,11 +201,18 @@ export const VerticalLayout: FC<VerticalLayoutProps> = (props) => {
   const { children, sections, navColor } = props;
   const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("lg"));
   const mobileNav = useMobileNav();
-
+  const cssPaperVars = useCssVarsForPaper(navColor ? navColor : "evident");
   const drawerWidth = 280;
   return (
     <>
-      <DrawerProvider
+  
+      <TopNav onMobileNavOpen={mobileNav.handleOpen} />
+      {lgUp && (
+        // <SideNav
+        //   color={navColor}
+        //   sections={sections}
+        // />
+        <DrawerProvider
         initialState={"open"}
         variant="mini"
         drawerWidth={drawerWidth}
@@ -209,39 +221,17 @@ export const VerticalLayout: FC<VerticalLayoutProps> = (props) => {
         <Drawer
           drawerStyleProps={{
             paper: {
-              cssVars: useCssVarsForPaper(navColor ? navColor : "evident"),
+              cssVars: cssPaperVars,
               cssStyles: drawerPaperStyles(theme),
             },
           }}
         >
-          <DrawerContent nav={mockDrawerNavigation} />
+          <DrawerContent
+            nav={mockDrawerNavigation}
+            sections={sections} 
+          />
         </Drawer>
-      </DrawerProvider>
-      {/* <Select
-        label="Select"
-        value={undefined}
-      /> */}
-      {/* <FormDialog
-        title="Form Dialog"
-        submitText="Test"
-        onCancel={function (): void {
-          throw new Error("Function not implemented.");
-        }}
-        onSubmit={function (data: unknown): void {
-          throw new Error("Function not implemented.");
-        }}
-        open={true}
-      ></FormDialog> */}
-      <ValueRating
-        label="Value Rating"
-        value={3}
-      />
-      <TopNav onMobileNavOpen={mobileNav.handleOpen} />
-      {lgUp && (
-        <SideNav
-          color={navColor}
-          sections={sections}
-        />
+      </DrawerProvider> 
       )}
       {!lgUp && (
         <MobileNav

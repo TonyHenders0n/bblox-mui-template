@@ -1,10 +1,11 @@
 import { Box, List, Stack, useTheme } from "@mui/material";
 import React, { ReactNode } from "react";
-import { CustomDrawerItem, DrawerNavigationItem, DrawerSize } from "../drawer.types";
-import { DrawerSubheader } from "../drawer-subheader";
-import { DrawerItem } from "../drawer-item/drawer-item";
+ 
 import { useDrawer } from "../drawer-provider";
-import { SideNavItem } from "src/layouts/dashboard/vertical-layout/side-nav-item";
+import { CustomDrawerNavigationItem, DrawerNavigationItem, DrawerSize } from "../drawer.types";
+import { CustomDrawerItem } from "../drawer-item";
+ 
+ 
  
 
 export interface DrawerSectionProps {
@@ -22,8 +23,8 @@ export interface DrawerSectionProps {
   size?: DrawerSize;
 }
 
-interface SideNavSectionProps {
-  items?: CustomDrawerItem[];
+interface CustomDrawerSectionProps {
+  items?: CustomDrawerNavigationItem[];
   pathname?: string | null;
   subheader?: string;
   size?: DrawerSize;
@@ -38,7 +39,7 @@ const renderItems = ({
   pathname
 }: {
   depth?: number;
-  items: CustomDrawerItem[];
+  items: CustomDrawerNavigationItem[];
   pathname?: string | null;
 }): JSX.Element[] => items.reduce(
   (acc: JSX.Element[], item) => reduceChildRoutes({
@@ -58,7 +59,7 @@ const reduceChildRoutes = ({
 }: {
   acc: JSX.Element[];
   depth: number;
-  item: CustomDrawerItem;
+  item: CustomDrawerNavigationItem;
   pathname?: string | null;
 }): Array<JSX.Element> => {
   const checkPath = !!(item.path && pathname);
@@ -67,7 +68,7 @@ const reduceChildRoutes = ({
 
   if (item.items) {
     acc.push(
-      <SideNavItem
+      <CustomDrawerItem
         active={partialMatch}
         depth={depth}
         disabled={item.disabled}
@@ -92,11 +93,11 @@ const reduceChildRoutes = ({
             pathname
           })}
         </Stack>
-      </SideNavItem>
+      </CustomDrawerItem>
     );
   } else {
     acc.push(
-      <SideNavItem
+      <CustomDrawerItem
         active={exactMatch}
         depth={depth}
         disabled={item.disabled}
@@ -121,9 +122,9 @@ export const DrawerSection = ({
   title,
   items = [],
   size = "medium",
-  // pathname,
-  // subheader
-}: DrawerSectionProps) => {
+  pathname,
+  subheader
+}: CustomDrawerSectionProps) => {
   const { state } = useDrawer();
   const { spacing } = useTheme();
   return (
@@ -154,8 +155,8 @@ export const DrawerSection = ({
             {title}
           </Box>
         )}
-        {/* {renderItems({ items, pathname })} */}
-        <List
+        {renderItems({ items, pathname })}
+        {/* <List
           sx={{
             paddingTop: size === "small" ? spacing(0) : undefined,
             paddingY: state === "collapse" ? 0 : undefined,
@@ -168,7 +169,7 @@ export const DrawerSection = ({
               size={size}
             />
           ))}
-        </List>
+        </List> */}
       </Stack>
       {/* {title && state === "open" && (
         <DrawerSubheader

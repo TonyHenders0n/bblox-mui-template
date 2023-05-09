@@ -6359,10 +6359,10 @@ batch@0.6.1:
   resolved "https://registry.npmjs.org/batch/-/batch-0.6.1.tgz"
   integrity sha512-x+VAiMRL6UPkx+kudNvxTl6hB2XNNCG2r+7wixVfIYwu/2HKRXimwQyaumLjMveWvT2Hkd/cAJw+QBMfJ/EKVw==
 
-bblox-react-core@0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/bblox-react-core/-/bblox-react-core-0.0.1.tgz#dd6d23f82eea9718923558a754bf452ae9bf81a4"
-  integrity sha512-xh+b5AKh/GZHc76cyzGwNVlh+KDQ6EoaFxx80QbyNZdhw+72CPX/aQ1m5WSVdg8mA71qy2FcEJRd1jeVUrzYgA==
+bblox-react-core@0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/bblox-react-core/-/bblox-react-core-0.0.3.tgz#752640dfe799d8b36fe10ed7386435ebf0efa69b"
+  integrity sha512-W0mgtuYB052N8wpnW06gbtr4RNe1m6DjMC45E5+vBvYwp1zpaouv9p8YhG/9gs0+MCyy9ipT0xsc96hLGim3jw==
   dependencies:
     "@emotion/react" "^11.10.6"
     "@emotion/styled" "^11.10.6"
@@ -6372,12 +6372,14 @@ bblox-react-core@0.0.1:
     "@mui/material" "^5.11.15"
     "@mui/x-data-grid" "^6.0.4"
     "@mui/x-date-pickers" "^6.0.4"
+    "@untitled-ui/icons-react" "0.1.0"
     date-fns "^2.29.3"
     lorem-ipsum "^2.0.8"
     markdown-to-jsx "^7.2.0"
     react "^18.2.0"
     react-dom "^18.2.0"
     react-router-dom "^6.10.0"
+    simplebar-react "3.2.1"
 
 bfj@^7.0.2:
   version "7.0.2"

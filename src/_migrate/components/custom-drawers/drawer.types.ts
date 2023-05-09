@@ -2,6 +2,7 @@ import { FunctionComponent, ReactElement, ReactNode } from "react";
 import { BulletVariant, LabelVariant } from "../data-display";
 import { CSSObject, DrawerProps as MuiDrawerProps, Theme } from "@mui/material";
 import { DrawerAppBarProps } from "./drawer-app-bar";
+import { Section } from "src/layouts/dashboard/config";
 
 export type DrawerVariant = "temporary" | "mini" | "persistent" | "clipped";
 export type DrawerState = "open" | "collapse" | "close";
@@ -62,11 +63,11 @@ export interface DrawerNavigation {
   items: DrawerNavigationSection[];
 }
 
-export interface CustomDrawerItem {
+export interface CustomDrawerNavigationItem {
   disabled?: boolean;
   external?: boolean;
   icon?: ReactNode;
-  items?: CustomDrawerItem[];
+  items?: CustomDrawerNavigationItem[];
   label?: ReactNode;
   path?: string;
   title: string;
@@ -77,6 +78,8 @@ export interface DrawerContentProps {
    * Object with the content that has to be rendered
    */
   nav: DrawerNavigation;
+
+  sections?: Section[];
   /**
    * Item size. default to medium
    */
@@ -97,9 +100,9 @@ export interface DrawerStyleProps {
   cssStyles?: CSSObject;
 }
 
-export interface DrawerProps extends MuiDrawerProps {
-  drawerStyleProps?: DrawerStyleProps;
+export interface DrawerProps extends MuiDrawerProps { 
   children: DrawerContentElement;
+  drawerStyleProps?: DrawerStyleProps;
 }
 
 export type DrawerComponent = FunctionComponent<DrawerProps>;
