@@ -20,7 +20,7 @@ import {
 } from '@mui/material';
 import { blueGrey } from '@mui/material/colors';
 import { socialApi } from 'src/api/social';
-import { RouterLink } from 'src/components/router-link';
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
 import { Seo } from 'src/components/seo';
 import { useMounted } from 'src/hooks/use-mounted';
 import { usePageView } from 'src/hooks/use-page-view';

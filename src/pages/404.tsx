@@ -1,6 +1,6 @@
 import type { Theme } from '@mui/material';
 import { Box, Button, Container, Typography, useMediaQuery } from '@mui/material';
-import { RouterLink } from 'src/components/router-link';
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
 import { Seo } from 'src/components/seo';
 import { usePageView } from 'src/hooks/use-page-view';
 import { paths } from 'src/paths';

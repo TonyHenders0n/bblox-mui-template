@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Box, Container, Stack } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { Logo } from 'src/components/logo';
-import { RouterLink } from 'src/components/router-link';
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
 import { paths } from 'src/paths';
 
 const TOP_NAV_HEIGHT: number = 64;

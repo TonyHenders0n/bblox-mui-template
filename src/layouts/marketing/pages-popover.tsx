@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import { Box, ButtonBase, Stack, SvgIcon } from '@mui/material';
-import { RouterLink } from 'src/components/router-link';
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
 import CreditCard01Icon from 'src/icons/untitled-ui/duocolor/credit-card-01';
 import HomeSmileIcon from 'src/icons/untitled-ui/duocolor/home-smile';
 import LayoutAlt02Icon from 'src/icons/untitled-ui/duocolor/layout-alt-02';

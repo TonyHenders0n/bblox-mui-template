@@ -8,7 +8,7 @@ import { LogoBolt } from 'src/components/logos/logo-bolt';
 import { LogoAws } from 'src/components/logos/logo-aws';
 import { LogoAccenture } from 'src/components/logos/logo-accenture';
 import { LogoAtt } from 'src/components/logos/logo-att';
-import { RouterLink } from 'src/components/router-link';
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
 import { paths } from 'src/paths';
 
 interface LayoutProps {

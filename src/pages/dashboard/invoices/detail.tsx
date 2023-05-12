@@ -13,7 +13,7 @@ import {
   Typography
 } from '@mui/material';
 import { invoicesApi } from 'src/api/invoices';
-import { RouterLink } from 'src/components/router-link';
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
 import { Seo } from 'src/components/seo';
 import { useDialog } from 'src/hooks/use-dialog';
 import { useMounted } from 'src/hooks/use-mounted';

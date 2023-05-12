@@ -15,7 +15,7 @@ import {
 } from '@mui/material';
 import { blogApi } from 'src/api/blog';
 import { BreadcrumbsSeparator } from 'src/components/breadcrumbs-separator';
-import { RouterLink } from 'src/components/router-link';
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
 import { Seo } from 'src/components/seo';
 import { useMounted } from 'src/hooks/use-mounted';
 import { usePageView } from 'src/hooks/use-page-view';

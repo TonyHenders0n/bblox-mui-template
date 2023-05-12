@@ -13,7 +13,7 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { BreadcrumbsSeparator } from 'src/components/breadcrumbs-separator';
-import { RouterLink } from 'src/components/router-link';
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
 import { paths } from 'src/paths';
 
 const LayoutRoot = styled('div')(

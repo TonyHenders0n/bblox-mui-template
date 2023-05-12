@@ -16,7 +16,7 @@ import {
   SvgIcon,
   Typography
 } from '@mui/material';
-import { RouterLink } from 'src/components/router-link';
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
 import { useAuth } from 'src/hooks/use-auth';
 import { useMockedUser } from 'src/hooks/use-mocked-user';
 import { useRouter } from 'src/hooks/use-router';

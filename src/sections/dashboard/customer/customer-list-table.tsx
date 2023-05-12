@@ -20,7 +20,7 @@ import {
   TableRow,
   Typography
 } from '@mui/material';
-import { RouterLink } from 'src/components/router-link';
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
 import { Scrollbar } from 'src/components/scrollbar';
 import { paths } from 'src/paths';
 import type { Customer } from 'src/types/customer';

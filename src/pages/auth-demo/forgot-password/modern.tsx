@@ -2,7 +2,7 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import ArrowLeftIcon from '@untitled-ui/icons-react/build/esm/ArrowLeft';
 import { Box, Button, Link, Stack, SvgIcon, TextField, Typography } from '@mui/material';
-import { RouterLink } from 'src/components/router-link';
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
 import { Seo } from 'src/components/seo';
 import { paths } from 'src/paths';
 import type { Page as PageType } from 'src/types/page';

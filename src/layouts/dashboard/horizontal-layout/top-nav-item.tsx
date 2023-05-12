@@ -4,7 +4,7 @@ import ChevronDownIcon from '@untitled-ui/icons-react/build/esm/ChevronDown';
 import ChevronRightIcon from '@untitled-ui/icons-react/build/esm/ChevronRight';
 import { Box, ButtonBase, ListItemButton, ListItemText, SvgIcon } from '@mui/material';
 import { Dropdown, DropdownMenu, DropdownTrigger } from 'src/components/dropdown';
-import { RouterLink } from 'src/components/router-link';
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
 
 interface Item {
   disabled?: boolean;

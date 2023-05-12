@@ -15,7 +15,7 @@ import {
   TableRow
 } from '@mui/material';
 import { MoreMenu } from 'src/components/more-menu';
-import { RouterLink } from 'src/components/router-link';
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
 import { Scrollbar } from 'src/components/scrollbar';
 import { SeverityPill } from 'src/components/severity-pill';
 import { paths } from 'src/paths';

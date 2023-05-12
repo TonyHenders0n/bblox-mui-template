@@ -7,7 +7,7 @@ import { LogoAws } from 'src/components/logos/logo-aws';
 import { LogoBolt } from 'src/components/logos/logo-bolt';
 import { LogoSamsung } from 'src/components/logos/logo-samsung';
 import { LogoVisma } from 'src/components/logos/logo-visma';
-import { RouterLink } from 'src/components/router-link';
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
 import { Seo } from 'src/components/seo';
 import { usePageView } from 'src/hooks/use-page-view';
 import { paths } from 'src/paths';

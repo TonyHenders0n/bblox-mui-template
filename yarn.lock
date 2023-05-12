@@ -6359,10 +6359,10 @@ batch@0.6.1:
   resolved "https://registry.npmjs.org/batch/-/batch-0.6.1.tgz"
   integrity sha512-x+VAiMRL6UPkx+kudNvxTl6hB2XNNCG2r+7wixVfIYwu/2HKRXimwQyaumLjMveWvT2Hkd/cAJw+QBMfJ/EKVw==
 
-bblox-react-core@0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/bblox-react-core/-/bblox-react-core-0.0.3.tgz#752640dfe799d8b36fe10ed7386435ebf0efa69b"
-  integrity sha512-W0mgtuYB052N8wpnW06gbtr4RNe1m6DjMC45E5+vBvYwp1zpaouv9p8YhG/9gs0+MCyy9ipT0xsc96hLGim3jw==
+bblox-react-core@0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/bblox-react-core/-/bblox-react-core-0.0.4.tgz#90b5fc58386a25bd02f3b6deac194abdfa6c605f"
+  integrity sha512-HPm0jwR0a8E8v9OoiTQFZHFu/NPLECuRvBjlvDtS16kNKTIQr390r3YPsIAmArgMqC92AFKJ7IVFXMtBQIAaYw==
   dependencies:
     "@emotion/react" "^11.10.6"
     "@emotion/styled" "^11.10.6"

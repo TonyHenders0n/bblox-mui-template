@@ -15,7 +15,7 @@ import {
   Typography,
   Unstable_Grid2 as Grid
 } from '@mui/material';
-import { RouterLink } from 'src/components/router-link';
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
 import { paths } from 'src/paths';
 import type { Customer } from 'src/types/customer';
 import { wait } from 'src/utils/wait';

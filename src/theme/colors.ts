@@ -1,4 +1,5 @@
 import type { PaletteColor } from '@mui/material';
+import { red } from '@mui/material/colors';
 import type { NeutralColors } from '@mui/material/styles';
 import { alpha } from '@mui/material/styles';
 
@@ -59,6 +60,15 @@ export const purple = withAlphas({
   main: '#9E77ED',
   dark: '#6941C6',
   darkest: '#42307D',
+  contrastText: '#FFFFFF'
+});
+
+export const pink = withAlphas({
+  lightest: '#FF0000',
+  light: '#FF0000',
+  main: '#FF0000',
+  dark: '#FF0000',
+  darkest: '#FF0000',
   contrastText: '#FFFFFF'
 });
 

@@ -1,17 +1,10 @@
-import type { FC, ReactNode } from 'react';
+import type { FC } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Stack } from '@mui/material';
-import { MobileNavItem } from './mobile-nav-item';
+import { MenuDrawerNavItem } from '../menu-drawer-nav-item';
+import { MenuDrawerNavSectionProps as MenuDrawerNavSectionProps, NavSectionItem } from '../menu-drawer.types';
 
-interface Item {
-  disabled?: boolean;
-  external?: boolean;
-  icon?: ReactNode;
-  items?: Item[];
-  label?: ReactNode;
-  path?: string;
-  title: string;
-}
+ 
 
 const renderItems = ({
   depth = 0,
@@ -19,7 +12,7 @@ const renderItems = ({
   pathname
 }: {
   depth?: number;
-  items: Item[];
+  items: NavSectionItem[];
   pathname?: string | null;
 }): JSX.Element[] => items.reduce(
   (acc: JSX.Element[], item) => reduceChildRoutes({
@@ -39,7 +32,7 @@ const reduceChildRoutes = ({
 }: {
   acc: JSX.Element[];
   depth: number;
-  item: Item;
+  item: NavSectionItem;
   pathname?: string | null;
 }): Array<JSX.Element> => {
   const checkPath = !!(item.path && pathname);
@@ -48,7 +41,7 @@ const reduceChildRoutes = ({
 
   if (item.items) {
     acc.push(
-      <MobileNavItem
+      <MenuDrawerNavItem
         active={partialMatch}
         depth={depth}
         disabled={item.disabled}
@@ -73,11 +66,11 @@ const reduceChildRoutes = ({
             pathname
           })}
         </Stack>
-      </MobileNavItem>
+      </MenuDrawerNavItem>
     );
   } else {
     acc.push(
-      <MobileNavItem
+      <MenuDrawerNavItem
         active={exactMatch}
         depth={depth}
         disabled={item.disabled}
@@ -94,13 +87,13 @@ const reduceChildRoutes = ({
   return acc;
 };
 
-interface MobileNavSectionProps {
-  items?: Item[];
-  pathname?: string | null;
-  subheader?: string;
-}
 
-export const MobileNavSection: FC<MobileNavSectionProps> = (props) => {
+/**
+ * 
+ * @param props 
+ * @returns 
+ */
+export const MenuDrawerNavSection: FC<MenuDrawerNavSectionProps> = (props) => {
   const { items = [], pathname, subheader = '', ...other } = props;
 
   return (
@@ -119,7 +112,7 @@ export const MobileNavSection: FC<MobileNavSectionProps> = (props) => {
           component="li"
           sx={{
             color: 'var(--nav-section-title-color)',
-            fontSize: 14,
+            fontSize: 12,
             fontWeight: 700,
             lineHeight: 1.66,
             mb: 1,
@@ -135,7 +128,7 @@ export const MobileNavSection: FC<MobileNavSectionProps> = (props) => {
   );
 };
 
-MobileNavSection.propTypes = {
+MenuDrawerNavSection.propTypes = {
   items: PropTypes.array,
   pathname: PropTypes.string,
   subheader: PropTypes.string

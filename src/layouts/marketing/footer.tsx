@@ -9,7 +9,7 @@ import {
   Unstable_Grid2 as Grid
 } from '@mui/material';
 import { Logo } from 'src/components/logo';
-import { RouterLink } from 'src/components/router-link';
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
 import { paths } from 'src/paths';
 
 interface Section {

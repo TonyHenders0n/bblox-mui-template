@@ -15,7 +15,7 @@ import {
 } from '@mui/material';
 import { alpha } from '@mui/material/styles';
 import { Logo } from 'src/components/logo';
-import { RouterLink } from 'src/components/router-link';
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
 import { usePathname } from 'src/hooks/use-pathname';
 import { useWindowScroll } from 'src/hooks/use-window-scroll';
 import { paths } from 'src/paths';

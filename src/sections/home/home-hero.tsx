@@ -3,7 +3,7 @@ import EyeIcon from '@untitled-ui/icons-react/build/esm/Eye';
 import LayoutBottomIcon from '@untitled-ui/icons-react/build/esm/LayoutBottom';
 import { Box, Button, Container, Rating, Stack, SvgIcon, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { RouterLink } from 'src/components/router-link';
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
 import { paths } from 'src/paths';
 import { HomeCodeSamples } from './home-code-samples';
 

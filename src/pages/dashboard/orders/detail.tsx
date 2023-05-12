@@ -6,7 +6,7 @@ import ChevronDownIcon from '@untitled-ui/icons-react/build/esm/ChevronDown';
 import Edit02Icon from '@untitled-ui/icons-react/build/esm/Edit02';
 import { Box, Button, Container, Link, Stack, SvgIcon, Typography } from '@mui/material';
 import { ordersApi } from 'src/api/orders';
-import { RouterLink } from 'src/components/router-link';
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
 import { Seo } from 'src/components/seo';
 import { useMounted } from 'src/hooks/use-mounted';
 import { usePageView } from 'src/hooks/use-page-view';

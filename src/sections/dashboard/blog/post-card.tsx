@@ -13,7 +13,7 @@ import {
   Stack,
   Typography
 } from '@mui/material';
-import { RouterLink } from 'src/components/router-link';
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
 import { paths } from 'src/paths';
 import { getInitials } from 'src/utils/get-initials';
 

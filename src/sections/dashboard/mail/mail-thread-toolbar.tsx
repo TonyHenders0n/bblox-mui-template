@@ -23,7 +23,7 @@ import {
 } from '@mui/material';
 import ReplyIcon from '@mui/icons-material/Reply';
 import ReplyAllIcon from '@mui/icons-material/ReplyAll';
-import { RouterLink } from 'src/components/router-link';
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
 import type { EmailParticipant } from 'src/types/mail';
 import { getInitials } from 'src/utils/get-initials';
 

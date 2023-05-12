@@ -14,7 +14,7 @@ import {
   Unstable_Grid2 as Grid
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { RouterLink } from 'src/components/router-link';
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
 import { paths } from 'src/paths';
 import type { Company } from 'src/types/job';
 import { CompanyJobs } from './company-jobs';

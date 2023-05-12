@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import PropTypes from 'prop-types';
 import { Box, ButtonBase, Drawer, Stack } from '@mui/material';
 import { Logo } from 'src/components/logo';
-import { RouterLink } from 'src/components/router-link';
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
 import { usePathname } from 'src/hooks/use-pathname';
 import { paths } from 'src/paths';
 import { SideNavItem } from './side-nav-item';

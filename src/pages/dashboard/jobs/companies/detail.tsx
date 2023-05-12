@@ -18,7 +18,7 @@ import {
   Unstable_Grid2 as Grid
 } from '@mui/material';
 import { jobsApi } from 'src/api/jobs';
-import { RouterLink } from 'src/components/router-link';
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
 import { Seo } from 'src/components/seo';
 import { useMounted } from 'src/hooks/use-mounted';
 import { usePageView } from 'src/hooks/use-page-view';

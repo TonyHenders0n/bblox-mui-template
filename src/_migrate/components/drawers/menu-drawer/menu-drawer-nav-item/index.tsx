@@ -4,22 +4,15 @@ import PropTypes from 'prop-types';
 import ChevronDownIcon from '@untitled-ui/icons-react/build/esm/ChevronDown';
 import ChevronRightIcon from '@untitled-ui/icons-react/build/esm/ChevronRight';
 import { Box, ButtonBase, Collapse, SvgIcon } from '@mui/material';
-import { RouterLink } from 'src/components/router-link';
-
-interface SideNavItemProps {
-  active?: boolean;
-  children?: ReactNode;
-  depth?: number;
-  disabled?: boolean;
-  external?: boolean;
-  icon?: ReactNode;
-  label?: ReactNode;
-  open?: boolean;
-  path?: string;
-  title: string;
-}
-
-export const SideNavItem: FC<SideNavItemProps> = (props) => {
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
+import { DrawerNavItemProps as MenuDrawerNavItemProps } from '../menu-drawer.types';
+ 
+/**
+ * 
+ * @param props 
+ * @returns 
+ */
+export const MenuDrawerNavItem: FC<MenuDrawerNavItemProps> = (props) => {
   const {
     active,
     children,
@@ -254,7 +247,7 @@ export const SideNavItem: FC<SideNavItemProps> = (props) => {
   );
 };
 
-SideNavItem.propTypes = {
+MenuDrawerNavItem.propTypes = {
   active: PropTypes.bool,
   children: PropTypes.node,
   depth: PropTypes.number,

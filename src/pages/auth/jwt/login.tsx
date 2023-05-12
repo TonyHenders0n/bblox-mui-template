@@ -12,7 +12,7 @@ import {
   TextField,
   Typography
 } from '@mui/material';
-import { RouterLink } from 'src/components/router-link';
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
 import { Seo } from 'src/components/seo';
 import type { AuthContextType } from 'src/contexts/auth/jwt-context';
 import { useAuth } from 'src/hooks/use-auth';

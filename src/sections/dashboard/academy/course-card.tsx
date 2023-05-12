@@ -14,7 +14,7 @@ import {
   SvgIcon,
   Typography
 } from '@mui/material';
-import { RouterLink } from 'src/components/router-link';
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
 import { paths } from 'src/paths';
 import type { Course } from 'src/types/academy';
 

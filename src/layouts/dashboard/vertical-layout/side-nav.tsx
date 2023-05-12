@@ -5,7 +5,7 @@ import File04Icon from '@untitled-ui/icons-react/build/esm/File04';
 import { Box, Button, Drawer, Stack, SvgIcon, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { Logo } from 'src/components/logo';
-import { RouterLink } from 'src/components/router-link';
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
 import { Scrollbar } from 'src/components/scrollbar';
 import { usePathname } from 'src/hooks/use-pathname';
 import { paths } from 'src/paths';

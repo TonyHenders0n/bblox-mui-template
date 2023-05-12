@@ -51,7 +51,7 @@ export const SettingsDrawer: FC<SettingsDrawerProps> = (props) => {
         elevation: 24,
         sx: {
           maxWidth: '100%',
-          width: 440
+          width: 350
         }
       }}
       {...other}

@@ -6,7 +6,7 @@ import { Box, IconButton, Stack, SvgIcon, Typography } from '@mui/material';
 import { usePopover } from 'src/hooks/use-popover';
 import { TenantPopover } from './tenant-popover';
 
-const tenants: string[] = ['Devias', 'Acme Corp'];
+const tenants: string[] = ['CAIR3', 'School HUB'];
 
 interface TenantSwitchProps {
   sx?: SxProps;
@@ -28,11 +28,11 @@ export const TenantSwitch: FC<TenantSwitchProps> = (props) => {
             color="inherit"
             variant="h6"
           >
-            Devias
+           CAIR3
           </Typography>
           <Typography
             color="neutral.400"
-            variant="body2"
+            variant="subtitle2"
           >
             Production
           </Typography>

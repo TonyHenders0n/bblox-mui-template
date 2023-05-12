@@ -4,7 +4,7 @@ import CheckVerified01 from '@untitled-ui/icons-react/build/esm/CheckVerified01'
 import Star01Icon from '@untitled-ui/icons-react/build/esm/Star01';
 import Users01Icon from '@untitled-ui/icons-react/build/esm/Users01';
 import { Avatar, Box, Card, CardContent, Link, Stack, SvgIcon, Typography } from '@mui/material';
-import { RouterLink } from 'src/components/router-link';
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
 import { paths } from 'src/paths';
 import type { Company } from 'src/types/job';
 import { getInitials } from 'src/utils/get-initials';

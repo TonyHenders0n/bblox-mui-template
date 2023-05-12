@@ -1,5 +1,5 @@
-import { Box, List, Stack, useTheme } from "@mui/material";
-import React, { ReactNode } from "react";
+import { Box, Stack, useTheme } from "@mui/material";
+import React from "react";
  
 import { useDrawer } from "../drawer-provider";
 import { CustomDrawerNavigationItem, DrawerNavigationItem, DrawerSize } from "../drawer.types";
