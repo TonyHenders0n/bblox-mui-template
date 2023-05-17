@@ -29,9 +29,10 @@ import 'simplebar-react/dist/simplebar.min.css';
 import 'mapbox-gl/dist/mapbox-gl.css';
 // Remove if locales are not used
 import './locales/i18n';
-import { SettingsDrawer } from './_migrate/components/drawers/settings-drawer';
-import { SettingValuesOverride } from './_migrate/types/settings';
+// import { SettingsDrawer } from './_migrate/components/drawers/settings-drawer';
+// import { SettingValuesOverride } from './_migrate/types/settings';
 import { colorPresetOptions } from './mocks/settings-drawer.mocks';
+import {   SettingValuesOverride, SettingsDrawer, MenuDrawer } from 'bblox-react-core';
  
 export const App: FC = () => {
   useAnalytics(gtmConfig);

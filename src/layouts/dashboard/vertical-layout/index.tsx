@@ -9,7 +9,7 @@ import File04Icon from "@untitled-ui/icons-react/build/esm/File04";
 import { TopNav } from "./top-nav";
 import { useMobileNav } from "./use-mobile-nav";
 //  import { Drawer } from "src/_migrate/components/drawers/drawer";
- import { Drawer } from "bblox-react-core";
+ import { MenuDrawer  } from "bblox-react-core";
 import { TenantSwitch } from "../tenant-switch";
 import { Logo } from "src/components/logo";
 import { paths } from "src/paths";
@@ -74,7 +74,7 @@ export const VerticalLayout: FC<VerticalLayoutProps> = (props) => {
       <TopNav onMobileNavOpen={mobileNav.handleOpen} />
 
        {/* Drawer Library component  */}
-      <Drawer
+      <MenuDrawer
         indexPath={paths.index}
         sections={sections}
         drawerWidth={drawerWidth}
