@@ -1,11 +1,10 @@
-import { ColorPreset } from "src/theme";
-import { SettingsOptionValue } from "./settings-drawer.types";
+import { ColorPreset } from "src/theme"; 
 import { blue, green, indigo, purple, pink } from "src/theme/colors";
 import { Box, Direction, PaletteMode, Stack, SvgIcon } from "@mui/material";
 import SunIcon from "@untitled-ui/icons-react/build/esm/Sun";
 import Moon01Icon from "@untitled-ui/icons-react/build/esm/Moon01"; 
 import { Logo } from 'src/components/logo';
-import { Contrast, Layout, NavColor } from 'src/_migrate/types/settings';
+import { Contrast, Layout, NavColor, SettingsConfiguration, SettingsOptionValue } from 'src/_migrate/types/settings';
 import LeftIndent01Icon from '@untitled-ui/icons-react/build/esm/LeftIndent01';
 import RightIndent01Icon from '@untitled-ui/icons-react/build/esm/RightIndent01';
 
@@ -414,3 +413,6 @@ export const stretchOptions: SettingsOptionValue<boolean>[] = [
     )
   }
 ];
+
+
+

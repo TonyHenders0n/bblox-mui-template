@@ -3,7 +3,7 @@ import type { RouteObject } from 'react-router';
 import { Outlet } from 'react-router-dom';
 import { IssuerGuard } from 'src/guards/issuer-guard';
 import { GuestGuard } from 'src/guards/guest-guard';
-import { Layout as AuthLayout } from 'src/layouts/auth/classic-layout';
+import { Layout as AuthLayout } from 'src/layouts/auth/modern-layout';
 import { Issuer } from 'src/utils/auth';
 
 // Amplify
@@ -22,7 +22,7 @@ const FirebaseLoginPage = lazy(() => import('src/pages/auth/firebase/login'));
 const FirebaseRegisterPage = lazy(() => import('src/pages/auth/firebase/register'));
 
 // JWT
-const JwtLoginPage = lazy(() => import('src/pages/auth/jwt/login'));
+const JwtLoginPage = lazy(() => import('src/pages/auth/jwt/login-modern'));
 const JwtRegisterPage = lazy(() => import('src/pages/auth/jwt/register'));
 
 export const authRoutes: RouteObject[] = [

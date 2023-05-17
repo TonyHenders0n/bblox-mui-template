@@ -1,56 +1,12 @@
-import { PaletteMode } from "@mui/material";
 import { ReactElement } from "react";
-import { Direction } from "react-beautiful-dnd";
-import { Layout, NavColor, Settings } from 'src/_migrate/types/settings';
-import { ColorPreset, Contrast } from "src/theme";
+import { Settings, SettingsConfiguration, SettingsOptionValue } from "src/_migrate/types/settings";
+ 
+import { colorSchemeOptions, navColorOptions } from './settings-drawer.mocks';
 // import { Layout, NavColor, Settings } from "src/types/settings";
 
 
 
-export interface SettingsOptionValue<T> {
-    label: string;
-    value: T;
-    icon?: ReactElement;
-    color?: string;
-  }
 
-export interface ColorPresetOption extends SettingsOptionValue<ColorPreset> {
- 
-  color: string;
-}
-
-export interface ColorSchemeOption {
-  label: string;
-  value: PaletteMode;
-  icon: ReactElement;
-}
-
-export interface ContrastOption {
-  label: string;
-  value: Contrast;
-}
-
-export interface DirectionOption {
-  label: string;
-  value: Direction;
-  icon: ReactElement;
-}
-export interface LayoutOption {
-  label: string;
-  value: Layout;
-  icon: ReactElement;
-}
-
-export interface NavColorOption {
-  label: string;
-  value: NavColor;
-}
-
-export interface StretchOption {
-  label: string;
-  value: boolean;
-  icon: ReactElement;
-}
 
 /**
  *
@@ -73,7 +29,6 @@ export interface SettingsDrawerProps {
   values?: Settings;
 }
 
-
 /**
  * Only use if generic type is needed
  */
@@ -85,3 +40,7 @@ export interface SettingsDrawerProps {
 //     open?: boolean;
 //     values?: Settings<TColorPreset>;
 //   }
+export const settingsConfiguration: SettingsConfiguration<any>[] =  [];
+
+settingsConfiguration.push({optionValuesList: colorSchemeOptions, type: "colorPreset", value: "blue"});
+settingsConfiguration.push({optionValuesList: navColorOptions, type: "navColor", value: "blend-in"});

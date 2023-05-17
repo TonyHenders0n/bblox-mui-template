@@ -30,12 +30,13 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 // Remove if locales are not used
 import './locales/i18n';
 import { SettingsDrawer } from './_migrate/components/drawers/settings-drawer';
-
+ 
 export const App: FC = () => {
   useAnalytics(gtmConfig);
   useNprogress();
 
   const element = useRoutes(routes);
+
 
   return (
     <ReduxProvider store={store}>

@@ -3,7 +3,7 @@ export const paths = {
   checkout: '/checkout',
   contact: '/contact',
   pricing: '/pricing',
-  auth: {
+  auth: { 
     auth0: {
       callback: '/auth/auth0/callback',
       login: '/auth/auth0/login'

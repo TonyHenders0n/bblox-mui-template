@@ -1,37 +1,53 @@
-import { Direction, PaletteMode } from '@mui/material';
- 
-export type Layout = 'horizontal' | 'vertical';
+import { Direction, PaletteMode } from "@mui/material";
+import { ReactElement } from "react";
 
-export type NavColor = 'blend-in' | 'discreet' | 'evident';
+export type Layout = "horizontal" | "vertical";
 
-export type Contrast = 'normal' | 'high';
+export type NavColor = "blend-in" | "discreet" | "evident";
 
-export type SettingsOptionsType = 'colorPreset' | 'contrast' | 'direction' | 'layout' | 'navColor' | 'paletteMode' | 'responsiveFontSizes' | 'stretch';
+export type Contrast = "normal" | "high";
 
-
-// export interface SettingsOptionValue{
-
-//     optionType: SettingsOptionsType;
-//     optionValues:  SettingsOptionValue<T>[];
-
-// }
- 
-
+export type SettingsOptionsType =
+  | "colorPreset"
+  | "contrast"
+  | "direction"
+  | "layout"
+  | "navColor"
+  | "paletteMode"
+  | "responsiveFontSizes"
+  | "stretch";
 
 /**
- * 
+ *
  */
-export interface Settings  {
-    colorPreset?: any;
-    contrast?: Contrast;
-    direction?: Direction;
-    layout?: Layout;
-    navColor?: NavColor;
-    paletteMode?: PaletteMode;
-    responsiveFontSizes?: boolean;
-    stretch?: boolean;
-  }
-  
+export interface SettingsOptionValue<T> {
+  label: string;
+  value: T;
+  icon?: ReactElement;
+  color?: string;
+}
+
+export interface SettingsConfiguration<T> {
+  type: SettingsOptionsType;
+  value: T;
+  optionValuesList: SettingsOptionValue<T>[];
+}
+
+/**
+ *
+ */
+export interface Settings {
+  settingsConfiguration?: SettingsConfiguration<any>[];
+  colorPreset?: any;
+  contrast?: Contrast;
+  direction?: Direction;
+  layout?: Layout;
+  navColor?: NavColor;
+  paletteMode?: PaletteMode;
+  responsiveFontSizes?: boolean;
+  stretch?: boolean;
+}
+
 // Only use if generic type is needed
 //   export interface Settings<TColorPreset> {
 //     colorPreset?: TColorPreset;
@@ -43,6 +59,3 @@ export interface Settings  {
 //     responsiveFontSizes?: boolean;
 //     stretch?: boolean;
 //   }
-  
-
- 

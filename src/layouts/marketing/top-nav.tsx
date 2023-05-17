@@ -213,11 +213,11 @@ export const TopNav: FC<TopNavProps> = (props) => {
             <Button
               component="a"
               size={mdUp ? 'medium' : 'small'}
-              href="https://mui.com/store/items/devias-kit-pro"
-              target="_blank"
+              href={paths.auth.jwt.register}
+              // target="_blank" // only if desire is to open in new tab
               variant="contained"
             >
-              Purchase Now
+              Register
             </Button>
             {!mdUp && (
               <IconButton onClick={onMobileNavOpen}>
