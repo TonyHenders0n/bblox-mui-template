@@ -30,6 +30,8 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 // Remove if locales are not used
 import './locales/i18n';
 import { SettingsDrawer } from './_migrate/components/drawers/settings-drawer';
+import { SettingValuesOverride } from './_migrate/types/settings';
+import { colorPresetOptions } from './mocks/settings-drawer.mocks';
  
 export const App: FC = () => {
   useAnalytics(gtmConfig);
@@ -37,7 +39,10 @@ export const App: FC = () => {
 
   const element = useRoutes(routes);
 
+ const settingsConfiguration: SettingValuesOverride[] =  [];
 
+settingsConfiguration.push({  type: "colorPreset", optionValuesList: colorPresetOptions});
+  
   return (
     <ReduxProvider store={store}>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -86,6 +91,7 @@ export const App: FC = () => {
                                   <SettingsButton onClick={settings.handleDrawerOpen} />
                                   {/* <SettingsDrawer<ColorPreset> */}
                                   <SettingsDrawer
+                                    valuesOverride={settingsConfiguration}
                                     canReset={settings.isCustom}
                                     onClose={settings.handleDrawerClose}
                                     onReset={settings.handleReset}

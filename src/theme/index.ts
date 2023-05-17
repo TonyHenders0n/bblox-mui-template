@@ -42,7 +42,7 @@ import { createOptions as createLightOptions } from './light/create-options';
 //   }
 // }
 
-export type ColorPreset = 'blue' | 'green' | 'indigo' | 'purple' | 'pink';
+export type ColorPreset = 'blue' | 'green' | 'indigo' | 'purple' | 'pink' | 'orange';
 
 export type Contrast = 'normal' | 'high';
 

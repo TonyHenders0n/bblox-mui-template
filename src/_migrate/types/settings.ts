@@ -27,17 +27,15 @@ export interface SettingsOptionValue<T> {
   color?: string;
 }
 
-export interface SettingsConfiguration<T> {
-  type: SettingsOptionsType;
-  value: T;
-  optionValuesList: SettingsOptionValue<T>[];
+export interface SettingValuesOverride {
+  type: SettingsOptionsType; 
+  optionValuesList: SettingsOptionValue<any>[];
 }
 
 /**
  *
  */
-export interface Settings {
-  settingsConfiguration?: SettingsConfiguration<any>[];
+export interface Settings { 
   colorPreset?: any;
   contrast?: Contrast;
   direction?: Direction;

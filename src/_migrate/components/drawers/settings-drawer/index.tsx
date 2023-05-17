@@ -30,8 +30,8 @@ import {
   layoutOptions,
   navColorOptions,
   stretchOptions,
-} from "./settings-drawer.mocks";
-import { Settings } from "src/_migrate/types/settings";
+} from "./settings-drawer.config";
+import { Settings, SettingsOptionsType, SettingsOptionValue } from "src/_migrate/types/settings";
 
 /**
  *
@@ -46,6 +46,7 @@ import { Settings } from "src/_migrate/types/settings";
 
 export const SettingsDrawer: FC<SettingsDrawerProps> = (props) => {
   const {
+    valuesOverride = [],
     canReset,
     onClose,
     onUpdate,
@@ -64,6 +65,25 @@ export const SettingsDrawer: FC<SettingsDrawerProps> = (props) => {
     [onUpdate]
   );
 
+  /**
+   * 
+   * @param type 
+   * @param defaultSettings 
+   * @returns 
+   */
+  const getSettingsValues = (type: SettingsOptionsType, defaultSettings: SettingsOptionValue<any>[] ): SettingsOptionValue<any>[] => {
+  
+    var values = defaultSettings
+    valuesOverride?.forEach(element => {  
+      if (element.type === type) {
+        console.log(`Setting ${element.type} to ${JSON.stringify(element.optionValuesList, null, '\t')}`);
+        values =  element.optionValuesList;
+      } 
+    });
+
+    return values;
+  }
+ 
   return (
     <Drawer
       disableScrollLock
@@ -154,57 +174,57 @@ export const SettingsDrawer: FC<SettingsDrawerProps> = (props) => {
         >
           {values.colorPreset && (
             <OptionsColorPreset
-              onChange={(value) => handleFieldUpdate("colorPreset", value)}
-              options={colorPresetOptions}
+              onChange={(value) => handleFieldUpdate("colorPreset", value)} 
               value={values.colorPreset}
+              options={getSettingsValues('colorPreset', colorPresetOptions)}
             />
           )}
 
           {values.paletteMode && (
             <OptionsColorScheme
-              onChange={(value) => handleFieldUpdate("paletteMode", value)}
-              options={colorSchemeOptions}
+              onChange={(value) => handleFieldUpdate("paletteMode", value)} 
               value={values.paletteMode}
+              options={getSettingsValues('paletteMode', colorSchemeOptions)} 
             />
           )}
 
           {values.navColor && (
             <OptionsNavColor
               onChange={(value) => handleFieldUpdate("navColor", value)}
-              value={values.navColor}
-              options={navColorOptions}
+              value={values.navColor} 
+              options={getSettingsValues('navColor', navColorOptions)} 
             />
           )}
 
           {values.layout && (
             <OptionsLayout
               onChange={(value) => handleFieldUpdate("layout", value)}
-              value={values.layout}
-              options={layoutOptions}
+              value={values.layout} 
+              options={getSettingsValues('layout', layoutOptions)} 
             />
           )}
 
           {values.stretch && (
             <OptionsStretch
               onChange={(value) => handleFieldUpdate("stretch", value)}
-              value={values.stretch}
-              options={stretchOptions}
+              value={values.stretch} 
+              options={getSettingsValues('stretch', stretchOptions)} 
             />
           )}
 
           {values.contrast && (
             <OptionsContrast
               onChange={(value) => handleFieldUpdate("contrast", value)}
-              value={values.contrast}
-              options={contrastOptions}
+              value={values.contrast} 
+              options={getSettingsValues('contrast', contrastOptions)} 
             />
           )}
 
           {values.direction && (
             <OptionsDirection
               onChange={(value) => handleFieldUpdate("direction", value)}
-              value={values.direction}
-              options={directionOptions}
+              value={values.direction} 
+              options={getSettingsValues('direction', directionOptions)} 
             />
           )}
         </Stack>
