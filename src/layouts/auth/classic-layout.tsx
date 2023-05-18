@@ -77,7 +77,7 @@ export const Layout: FC<LayoutProps> = (props) => {
                   }
                 }}
               >
-                Devias Kit <span>PRO</span>
+                <span>Cann</span>Rel8
               </Box>
             </Stack>
           </Stack>

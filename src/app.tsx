@@ -32,7 +32,7 @@ import './locales/i18n';
 // import { SettingsDrawer } from './_migrate/components/drawers/settings-drawer';
 // import { SettingValuesOverride } from './_migrate/types/settings';
 import { colorPresetOptions } from './mocks/settings-drawer.mocks';
-import {   SettingValuesOverride, SettingsDrawer, MenuDrawer } from 'bblox-react-core';
+import {   SettingValuesOverride, SettingsDrawer  } from 'bblox-react-core';
  
 export const App: FC = () => {
   useAnalytics(gtmConfig);
@@ -89,8 +89,7 @@ settingsConfiguration.push({  type: "colorPreset", optionValuesList: colorPreset
                               : (
                                 <>
                                   {element}
-                                  <SettingsButton onClick={settings.handleDrawerOpen} />
-                                  {/* <SettingsDrawer<ColorPreset> */}
+                                  <SettingsButton onClick={settings.handleDrawerOpen} /> 
                                   <SettingsDrawer
                                     valuesOverride={settingsConfiguration}
                                     canReset={settings.isCustom}

@@ -15,7 +15,7 @@ import {
   SvgIcon
 } from '@mui/material';
 import ArrowLeftIcon from '@untitled-ui/icons-react/build/esm/ArrowLeft';
-import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
+ 
 import { Seo } from 'src/components/seo';
 import type { AuthContextType } from 'src/contexts/auth/jwt-context';
 import { useAuth } from 'src/hooks/use-auth';
@@ -25,6 +25,7 @@ import { useSearchParams } from 'src/hooks/use-search-params';
 import { paths } from 'src/paths';
 import { AuthIssuer } from 'src/sections/auth/auth-issuer';
 import type { Page as PageType } from 'src/types/page';
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
 
 interface Values {
   email: string;
@@ -88,7 +89,7 @@ const Page: PageType = () => {
         <Link
           color="text.primary"
           component={RouterLink}
-          href={paths.dashboard.index}
+          href={paths.index}
           sx={{
             alignItems: 'center',
             display: 'inline-flex'
@@ -99,7 +100,7 @@ const Page: PageType = () => {
             <ArrowLeftIcon />
           </SvgIcon>
           <Typography variant="subtitle2">
-            Dashboard
+            Home
           </Typography>
         </Link>
       </Box>
@@ -119,7 +120,7 @@ const Page: PageType = () => {
           Don&apos;t have an account?
           &nbsp;
           <Link
-            href="#"
+            href="/auth/jwt/register"
             underline="hover"
             variant="subtitle2"
           >

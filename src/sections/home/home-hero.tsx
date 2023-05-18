@@ -1,11 +1,13 @@
 import type { FC } from 'react';
 import EyeIcon from '@untitled-ui/icons-react/build/esm/Eye';
 import LayoutBottomIcon from '@untitled-ui/icons-react/build/esm/LayoutBottom';
+import UserIcon from '@untitled-ui/icons-react/build/esm/User01';
 import { Box, Button, Container, Rating, Stack, SvgIcon, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
+ 
 import { paths } from 'src/paths';
-import { HomeCodeSamples } from './home-code-samples';
+import { HomeCodeSamples } from './home-code-samples'; 
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
 
 export const HomeHero: FC = () => {
   const theme = useTheme();
@@ -72,7 +74,7 @@ export const HomeHero: FC = () => {
               based on (70+ reviews)
             </Typography>
           </Stack>
-          <Stack
+          {/* <Stack
             alignItems="center"
             direction="row"
             spacing={2}
@@ -82,7 +84,7 @@ export const HomeHero: FC = () => {
               href={paths.dashboard.index}
               startIcon={(
                 <SvgIcon fontSize="small">
-                  <EyeIcon />
+                  <UserIcon />
                 </SvgIcon>
               )}
               sx={(theme) => theme.palette.mode === 'dark'
@@ -103,7 +105,7 @@ export const HomeHero: FC = () => {
               }
               variant="contained"
             >
-              Live Demo
+              Login
             </Button>
             <Button
               color="inherit"
@@ -117,7 +119,7 @@ export const HomeHero: FC = () => {
             >
               Components
             </Button>
-          </Stack>
+          </Stack> */}
         </Box>
         <Box
           sx={{

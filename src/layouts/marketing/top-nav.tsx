@@ -1,8 +1,9 @@
-import type { FC, ReactNode } from 'react';
-import { useCallback, useState } from 'react';
-import PropTypes from 'prop-types';
-import Menu01Icon from '@untitled-ui/icons-react/build/esm/Menu01';
-import type { Theme } from '@mui/material';
+import type { FC, ReactNode } from "react";
+import { useCallback, useState } from "react";
+import PropTypes from "prop-types";
+import Menu01Icon from "@untitled-ui/icons-react/build/esm/Menu01";
+import UserIcon from "@untitled-ui/icons-react/build/esm/User01";
+import type { Theme } from "@mui/material";
 import {
   Box,
   Button,
@@ -11,17 +12,19 @@ import {
   IconButton,
   Stack,
   SvgIcon,
-  useMediaQuery
-} from '@mui/material';
-import { alpha } from '@mui/material/styles';
-import { Logo } from 'src/components/logo';
-import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
-import { usePathname } from 'src/hooks/use-pathname';
-import { useWindowScroll } from 'src/hooks/use-window-scroll';
-import { paths } from 'src/paths';
-import { PagesPopover } from './pages-popover';
-import { TopNavItem } from './top-nav-item';
-
+  useMediaQuery,
+} from "@mui/material";
+import { alpha } from "@mui/material/styles";
+import { Logo } from "src/components/logo";
+import { usePathname } from "src/hooks/use-pathname";
+import { useWindowScroll } from "src/hooks/use-window-scroll";
+import { paths } from "src/paths";
+import { PagesPopover } from "./pages-popover";
+import { TopNavItem } from "./top-nav-item";
+import { RouterLink } from "src/_migrate/components/navigation/link/router-link";
+import AppRegistrationSharpIcon from '@mui/icons-material/AppRegistrationSharp';
+import FaceIcon from '@mui/icons-material/Face';
+import LocalPoliceIcon from '@mui/icons-material/LocalPolice';
 interface Item {
   disabled?: boolean;
   external?: boolean;
@@ -32,18 +35,18 @@ interface Item {
 
 const items: Item[] = [
   {
-    title: 'Components',
-    path: paths.components.index
+    title: "Components",
+    path: paths.components.index,
   },
   {
-    title: 'Pages',
-    popover: <PagesPopover />
+    title: "Pages",
+    popover: <PagesPopover />,
   },
   {
-    title: 'Docs',
+    title: "Docs",
     path: paths.docs,
-    external: true
-  }
+    external: true,
+  },
 ];
 
 const TOP_NAV_HEIGHT: number = 64;
@@ -55,25 +58,22 @@ interface TopNavProps {
 export const TopNav: FC<TopNavProps> = (props) => {
   const { onMobileNavOpen } = props;
   const pathname = usePathname();
-  const mdUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('md'));
+  const mdUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("md"));
   const [elevate, setElevate] = useState<boolean>(false);
   const offset = 64;
   const delay = 100;
 
-  const handleWindowScroll = useCallback(
-    (): void => {
-      if (window.scrollY > offset) {
-        setElevate(true);
-      } else {
-        setElevate(false);
-      }
-    },
-    []
-  );
+  const handleWindowScroll = useCallback((): void => {
+    if (window.scrollY > offset) {
+      setElevate(true);
+    } else {
+      setElevate(false);
+    }
+  }, []);
 
   useWindowScroll({
     handler: handleWindowScroll,
-    delay
+    delay,
   });
 
   return (
@@ -81,28 +81,30 @@ export const TopNav: FC<TopNavProps> = (props) => {
       component="header"
       sx={{
         left: 0,
-        position: 'fixed',
+        position: "fixed",
         right: 0,
         top: 0,
         pt: 2,
-        zIndex: (theme) => theme.zIndex.appBar
+        zIndex: (theme) => theme.zIndex.appBar,
       }}
     >
       <Container
         maxWidth="lg"
         sx={{
-          backdropFilter: 'blur(6px)',
-          backgroundColor: 'transparent',
+          backdropFilter: "blur(6px)",
+          backgroundColor: "transparent",
           borderRadius: 2.5,
-          boxShadow: 'none',
-          transition: (theme) => theme.transitions.create('box-shadow, background-color', {
-            easing: theme.transitions.easing.easeInOut,
-            duration: 200
-          }),
+          boxShadow: "none",
+          transition: (theme) =>
+            theme.transitions.create("box-shadow, background-color", {
+              easing: theme.transitions.easing.easeInOut,
+              duration: 200,
+            }),
           ...(elevate && {
-            backgroundColor: (theme) => alpha(theme.palette.background.paper, 0.90),
-            boxShadow: 8
-          })
+            backgroundColor: (theme) =>
+              alpha(theme.palette.background.paper, 0.9),
+            boxShadow: 8,
+          }),
         }}
       >
         <Stack
@@ -123,13 +125,13 @@ export const TopNav: FC<TopNavProps> = (props) => {
               display="inline-flex"
               href={paths.index}
               spacing={1}
-              sx={{ textDecoration: 'none' }}
+              sx={{ textDecoration: "none" }}
             >
               <Box
                 sx={{
-                  display: 'inline-flex',
+                  display: "inline-flex",
                   height: 24,
-                  width: 24
+                  width: 24,
                 }}
               >
                 <Logo />
@@ -137,18 +139,18 @@ export const TopNav: FC<TopNavProps> = (props) => {
               {mdUp && (
                 <Box
                   sx={{
-                    color: 'text.primary',
-                    fontFamily: '\'Plus Jakarta Sans\', sans-serif',
+                    color: "text.primary",
+                    fontFamily: "'Plus Jakarta Sans', sans-serif",
                     fontSize: 14,
                     fontWeight: 800,
-                    letterSpacing: '0.3px',
+                    letterSpacing: "0.3px",
                     lineHeight: 2.5,
-                    '& span': {
-                      color: 'primary.main'
-                    }
+                    "& span": {
+                      color: "primary.main",
+                    },
                   }}
                 >
-                  Devias Kit <span>PRO</span>
+                  <span>Cann</span>Rel8
                 </Box>
               )}
             </Stack>
@@ -165,7 +167,7 @@ export const TopNav: FC<TopNavProps> = (props) => {
             >
               <Box
                 component="nav"
-                sx={{ height: '100%' }}
+                sx={{ height: "100%" }}
               >
                 <Stack
                   component="ul"
@@ -174,17 +176,21 @@ export const TopNav: FC<TopNavProps> = (props) => {
                   direction="row"
                   spacing={1}
                   sx={{
-                    height: '100%',
-                    listStyle: 'none',
+                    height: "100%",
+                    listStyle: "none",
                     m: 0,
-                    p: 0
+                    p: 0,
                   }}
                 >
                   <>
                     {items.map((item) => {
                       const checkPath = !!(item.path && pathname);
-                      const partialMatch = checkPath ? pathname.includes(item.path!) : false;
-                      const exactMatch = checkPath ? pathname === item.path : false;
+                      const partialMatch = checkPath
+                        ? pathname.includes(item.path!)
+                        : false;
+                      const exactMatch = checkPath
+                        ? pathname === item.path
+                        : false;
                       const active = item.popover ? partialMatch : exactMatch;
 
                       return (
@@ -212,10 +218,29 @@ export const TopNav: FC<TopNavProps> = (props) => {
           >
             <Button
               component="a"
-              size={mdUp ? 'medium' : 'small'}
-              href={paths.auth.jwt.register}
+              size={mdUp ? "medium" : "small"}
+              href={paths.auth.jwt.login}
               // target="_blank" // only if desire is to open in new tab
               variant="contained"
+              endIcon={
+                <SvgIcon fontSize="small">
+                  <FaceIcon />
+                </SvgIcon>
+              }
+            >
+              Login
+            </Button>
+            <Button
+              component="a"
+              size={mdUp ? "medium" : "small"}
+              href={paths.auth.jwt.register}
+              // target="_blank" // only if desire is to open in new tab
+              variant="outlined"
+              endIcon={
+                <SvgIcon fontSize="small">
+                  <LocalPoliceIcon />
+                </SvgIcon>
+              }
             >
               Register
             </Button>
@@ -234,5 +259,5 @@ export const TopNav: FC<TopNavProps> = (props) => {
 };
 
 TopNav.propTypes = {
-  onMobileNavOpen: PropTypes.func
+  onMobileNavOpen: PropTypes.func,
 };

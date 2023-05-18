@@ -7,9 +7,9 @@ import { LogoVisma } from 'src/components/logos/logo-visma';
 import { LogoBolt } from 'src/components/logos/logo-bolt';
 import { LogoAws } from 'src/components/logos/logo-aws';
 import { LogoAccenture } from 'src/components/logos/logo-accenture';
-import { LogoAtt } from 'src/components/logos/logo-att';
-import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
+import { LogoAtt } from 'src/components/logos/logo-att'; 
 import { paths } from 'src/paths';
+import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
 
 interface LayoutProps {
   children: ReactNode;
@@ -55,7 +55,7 @@ export const Layout: FC<LayoutProps> = (props) => {
             sx={{ mb: 1 }}
             variant="h4"
           >
-            Welcome to Devias Kit PRO
+            Welcome to CannRel8!
           </Typography>
           <Typography
             color="text.secondary"
@@ -146,7 +146,7 @@ export const Layout: FC<LayoutProps> = (props) => {
                   }
                 }}
               >
-                Devias Kit <span>PRO</span>
+                <span>Cann</span>Rel8
               </Box>
             </Stack>
           </Box>

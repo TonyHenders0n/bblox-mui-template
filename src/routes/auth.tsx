@@ -23,7 +23,7 @@ const FirebaseRegisterPage = lazy(() => import('src/pages/auth/firebase/register
 
 // JWT
 const JwtLoginPage = lazy(() => import('src/pages/auth/jwt/login-modern'));
-const JwtRegisterPage = lazy(() => import('src/pages/auth/jwt/register'));
+const JwtRegisterPage = lazy(() => import('src/pages/auth/jwt/register-modern'));
 
 export const authRoutes: RouteObject[] = [
   {

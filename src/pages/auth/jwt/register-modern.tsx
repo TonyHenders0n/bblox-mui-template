@@ -1,63 +1,85 @@
-import * as Yup from 'yup';
-import { useFormik } from 'formik';
-import ArrowLeftIcon from '@untitled-ui/icons-react/build/esm/ArrowLeft';
+import * as Yup from "yup";
+import { useFormik } from "formik";
 import {
   Box,
   Button,
+  Card,
+  CardContent,
+  CardHeader,
   Checkbox,
   FormHelperText,
   Link,
   Stack,
-  SvgIcon,
   TextField,
-  Typography
-} from '@mui/material';
- 
-import { Seo } from 'src/components/seo';
-import { paths } from 'src/paths';
-import type { Page as PageType } from 'src/types/page';
-import { RouterLink } from 'src/_migrate/components/navigation/link/router-link';
-
+  Typography,
+  SvgIcon
+} from "@mui/material";
+import { Seo } from "src/components/seo";
+import type { AuthContextType } from "src/contexts/auth/jwt-context";
+import { useAuth } from "src/hooks/use-auth";
+import { useMounted } from "src/hooks/use-mounted";
+import { usePageView } from "src/hooks/use-page-view";
+import { useSearchParams } from "src/hooks/use-search-params";
+import { paths } from "src/paths";
+import { AuthIssuer } from "src/sections/auth/auth-issuer";
+import type { Page as PageType } from "src/types/page";
+import { RouterLink } from "src/_migrate/components/navigation/link/router-link";
+import ArrowLeftIcon from '@untitled-ui/icons-react/build/esm/ArrowLeft';
 interface Values {
   email: string;
   name: string;
   password: string;
   policy: boolean;
+  submit: null;
 }
 
 const initialValues: Values = {
-  email: '',
-  name: '',
-  password: '',
-  policy: false
+  email: "",
+  name: "",
+  password: "",
+  policy: false,
+  submit: null,
 };
 
 const validationSchema = Yup.object({
-  email: Yup
-    .string()
-    .email('Must be a valid email')
+  email: Yup.string()
+    .email("Must be a valid email")
     .max(255)
-    .required('Email is required'),
-  name: Yup
-    .string()
-    .max(255)
-    .required('Name is required'),
-  password: Yup
-    .string()
-    .min(7)
-    .max(255)
-    .required('Password is required'),
-  policy: Yup
-    .boolean()
-    .oneOf([true], 'This field must be checked')
+    .required("Email is required"),
+  name: Yup.string().max(255).required("Name is required"),
+  password: Yup.string().min(7).max(255).required("Password is required"),
+  policy: Yup.boolean().oneOf([true], "This field must be checked"),
 });
 
 const Page: PageType = () => {
+  const isMounted = useMounted();
+  const searchParams = useSearchParams();
+  const returnTo = searchParams.get("returnTo");
+  const { issuer, signUp } = useAuth<AuthContextType>();
   const formik = useFormik({
     initialValues,
     validationSchema,
-    onSubmit: (): void => {}
+    onSubmit: async (values, helpers): Promise<void> => {
+      try {
+        await signUp(values.email, values.name, values.password);
+
+        if (isMounted()) {
+          // returnTo could be an absolute path
+          window.location.href = returnTo || paths.dashboard.index;
+        }
+      } catch (err) {
+        console.error(err);
+
+        if (isMounted()) {
+          helpers.setStatus({ success: false });
+          helpers.setErrors({ submit: err.message });
+          helpers.setSubmitting(false);
+        }
+      }
+    },
   });
+
+  usePageView();
 
   return (
     <>
@@ -69,34 +91,29 @@ const Page: PageType = () => {
             component={RouterLink}
             href={paths.dashboard.index}
             sx={{
-              alignItems: 'center',
-              display: 'inline-flex'
+              alignItems: "center",
+              display: "inline-flex",
             }}
             underline="hover"
           >
             <SvgIcon sx={{ mr: 1 }}>
               <ArrowLeftIcon />
             </SvgIcon>
-            <Typography variant="subtitle2">
-              Home
-            </Typography>
+            <Typography variant="subtitle2">Home</Typography>
           </Link>
         </Box>
         <Stack
           sx={{ mb: 4 }}
           spacing={1}
         >
-          <Typography variant="h5">
-            Register
-          </Typography>
+          <Typography variant="h5">Register</Typography>
           <Typography
             color="text.secondary"
             variant="body2"
           >
-            Already have an account?
-            &nbsp;
+            Already have an account? &nbsp;
             <Link
-              href="#"
+              href="/auth/jwt/login"
               underline="hover"
               variant="subtitle2"
             >
@@ -144,10 +161,10 @@ const Page: PageType = () => {
           </Stack>
           <Box
             sx={{
-              alignItems: 'center',
-              display: 'flex',
+              alignItems: "center",
+              display: "flex",
               ml: -1,
-              mt: 1
+              mt: 1,
             }}
           >
             <Checkbox
@@ -159,8 +176,7 @@ const Page: PageType = () => {
               color="text.secondary"
               variant="body2"
             >
-              I have read the
-              {' '}
+              I have read the{" "}
               <Link
                 component="a"
                 href="#"
@@ -170,9 +186,7 @@ const Page: PageType = () => {
             </Typography>
           </Box>
           {!!(formik.touched.policy && formik.errors.policy) && (
-            <FormHelperText error>
-              {formik.errors.policy}
-            </FormHelperText>
+            <FormHelperText error>{formik.errors.policy}</FormHelperText>
           )}
           <Button
             fullWidth
