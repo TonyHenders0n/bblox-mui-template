@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Chip, Stack, Typography } from '@mui/material';
  
 import { OptionsComponent } from './settings-drawer.types';
-import { Contrast } from 'src/_migrate/types/settings';
+import { Contrast } from 'bblox-react-core';
 
  
 export const OptionsContrast: FC<OptionsComponent<Contrast>>  = (props) => {

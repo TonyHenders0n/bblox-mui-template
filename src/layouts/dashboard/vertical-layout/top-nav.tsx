@@ -8,7 +8,8 @@ import { AccountButton } from '../account-button';
 import { ContactsButton } from '../contacts-button';
 import { LanguageSwitch } from '../language-switch';
 import { NotificationsButton } from '../notifications-button';
-import { SearchButton } from '../search-button';
+import { SearchButton } from 'src/_migrate/_migrate_complete/search-button';
+ 
 
 const TOP_NAV_HEIGHT: number = 64;
 const SIDE_NAV_WIDTH: number = 280;

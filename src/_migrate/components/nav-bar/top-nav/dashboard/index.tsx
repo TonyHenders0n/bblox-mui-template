@@ -4,6 +4,11 @@ import Menu01Icon from "@untitled-ui/icons-react/build/esm/Menu01";
 import type { Theme } from "@mui/material";
 import { Box, IconButton, Stack, SvgIcon, useMediaQuery } from "@mui/material";
 import { alpha, useTheme } from "@mui/material/styles";
+import { SearchButton } from 'src/layouts/dashboard/search-button';
+import { AccountButton } from 'src/layouts/dashboard/account-button';
+import { ContactsButton } from 'src/layouts/dashboard/contacts-button';
+import { LanguageSwitch } from 'src/layouts/dashboard/language-switch';
+import { NotificationsButton } from 'src/layouts/dashboard/notifications-button';
 // import { SearchButton } from "../../content/search-button";
 // import AccountButton from "../../content/account-button";
 // import { SearchButton } from '../search-button';
@@ -54,18 +59,33 @@ const DashboardTopNav: FC<TopNavProps> = (props) => {
           px: 2,
         }}
       >
-        <Stack alignItems="center" direction="row" spacing={2}>
+        <Stack
+          alignItems="center"
+          direction="row"
+          spacing={2}
+        >
           {!lgUp && (
-            <IconButton onClick={onMobileNavOpen} title="Menu">
+            <IconButton
+              onClick={onMobileNavOpen}
+              title="Menu"
+            >
               <SvgIcon>
                 <Menu01Icon />
               </SvgIcon>
             </IconButton>
           )}
-          {/* <SearchButton /> */}
+          <SearchButton />
         </Stack>
-        <Stack alignItems="center" direction="row" spacing={2}>
-          {children}
+        <Stack
+          alignItems="center"
+          direction="row"
+          spacing={2}
+        >
+          {/* {children} */}
+          <LanguageSwitch />
+          <NotificationsButton />
+          <ContactsButton />
+          <AccountButton />
         </Stack>
       </Stack>
     </Box>

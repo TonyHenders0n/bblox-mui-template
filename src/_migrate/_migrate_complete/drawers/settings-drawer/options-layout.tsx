@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Stack, Typography } from '@mui/material'; 
 import { OptionsComponent } from './settings-drawer.types';
-import { Layout } from 'src/_migrate/types/settings';
+import { Layout } from 'bblox-react-core';
   
  
 /**

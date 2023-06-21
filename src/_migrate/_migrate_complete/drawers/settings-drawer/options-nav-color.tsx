@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import { Chip, Stack, Typography } from '@mui/material'; 
 import { OptionsComponent } from './settings-drawer.types';
-import { NavColor } from 'src/_migrate/types/settings';
+import { NavColor } from 'bblox-react-core';
 
  
 

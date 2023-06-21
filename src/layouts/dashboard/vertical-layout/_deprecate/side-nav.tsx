@@ -10,9 +10,10 @@ import { Scrollbar } from 'src/components/scrollbar';
 import { usePathname } from 'src/hooks/use-pathname';
 import { paths } from 'src/paths';
 import type { NavColor } from 'src/types/settings';
-import type { Section } from '../config';
-import { TenantSwitch } from '../tenant-switch';
+
 import { SideNavSection } from './side-nav-section';
+import { Section } from '../../config';
+import { TenantSwitch } from '../../tenant-switch';
 
 const SIDE_NAV_WIDTH: number = 280;
 

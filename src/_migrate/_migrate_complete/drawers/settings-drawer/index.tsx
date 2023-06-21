@@ -31,7 +31,7 @@ import {
   navColorOptions,
   stretchOptions,
 } from "./settings-drawer.config";
-import { Settings, SettingsOptionsType, SettingsOptionValue } from "src/_migrate/types/settings";
+import { Settings, SettingsOptionsType, SettingsOptionValue } from "bblox-react-core";
 
 /**
  *

@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { Settings, SettingValuesOverride, SettingsOptionValue } from "src/_migrate/types/settings";
+import { Settings, SettingValuesOverride, SettingsOptionValue } from 'bblox-react-core';
  
 import { colorSchemeOptions, navColorOptions } from '../../../../mocks/settings-drawer.mocks';
 // import { Layout, NavColor, Settings } from "src/types/settings";

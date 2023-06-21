@@ -6,14 +6,14 @@ import { CSSObject, styled, useTheme } from "@mui/material/styles";
 import type { NavColor } from "src/types/settings";
 import type { Section } from "../config";
 import File04Icon from "@untitled-ui/icons-react/build/esm/File04";
-import { TopNav } from "./top-nav";
-import { useMobileNav } from "./use-mobile-nav";
+import { TopNav } from "./top-nav"; 
 //  import { Drawer } from "src/_migrate/components/drawers/drawer";
- import { MenuDrawer  } from "bblox-react-core";
+ import { MenuDrawer, useMobileNav  } from "bblox-react-core";
 import { TenantSwitch } from "../tenant-switch";
 import { Logo } from "src/components/logo";
 import { paths } from "src/paths";
 import { useCssVars, useMobileCssVars } from "./drawer.styles";
+import DashboardTopNav from 'src/_migrate/components/nav-bar/top-nav/dashboard';
 
 const SIDE_NAV_WIDTH: number = 280;
 
