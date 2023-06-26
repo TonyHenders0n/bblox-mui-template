@@ -5,10 +5,11 @@ import type { Theme } from "@mui/material";
 import { Box, IconButton, Stack, SvgIcon, useMediaQuery } from "@mui/material";
 import { alpha, useTheme } from "@mui/material/styles";
 import { SearchButton } from 'src/layouts/dashboard/search-button';
-import { AccountButton } from 'src/layouts/dashboard/account-button';
+import { AccountButton } from 'src/layouts-new/dashboard/account-button';
 import { ContactsButton } from 'src/layouts/dashboard/contacts-button';
 import { LanguageSwitch } from 'src/layouts/dashboard/language-switch';
 import { NotificationsButton } from 'src/layouts/dashboard/notifications-button';
+import { useMockedUser } from 'src/hooks/use-mocked-user';
 // import { SearchButton } from "../../content/search-button";
 // import AccountButton from "../../content/account-button";
 // import { SearchButton } from '../search-button';
@@ -29,7 +30,7 @@ const DashboardTopNav: FC<TopNavProps> = (props) => {
   const { children, onMobileNavOpen, ...other } = props;
   const theme = useTheme();
   const lgUp = useMediaQuery(theme.breakpoints.up("lg"));
-
+ const user = useMockedUser()
   return (
     <Box
       component="header"
@@ -85,7 +86,10 @@ const DashboardTopNav: FC<TopNavProps> = (props) => {
           <LanguageSwitch />
           <NotificationsButton />
           <ContactsButton />
-          <AccountButton />
+          <AccountButton
+            avatar={{ width: 40, height: 40, borderWidth: 2, borderOffset: 6 }}
+            user={{ name: user.name }}
+          />
         </Stack>
       </Stack>
     </Box>

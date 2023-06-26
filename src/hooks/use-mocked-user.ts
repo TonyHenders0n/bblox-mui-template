@@ -6,7 +6,9 @@ export const useMockedUser = (): User => {
   return {
     id: '5e86809283e28b96d2d38537',
     avatar: '/assets/avatars/avatar-anika-visser.png',
-    name: 'Anika Visser',
-    email: 'anika.visser@devias.io'
+    name: 'John Beverly',
+    email: 'john.beverly@someschool.org',
+    firstName: 'John',
+    lastName: 'Beverly',
   };
 };

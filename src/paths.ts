@@ -53,7 +53,7 @@ export const paths = {
       courseDetails: '/dashboard/academy/courses/:courseId'
     },
     account: '/dashboard/account',
-    analytics: '/dashboard/analytics',
+    analytics: '/dashboard/analytics', 
     blank: '/dashboard/blank',
     blog: {
       index: '/dashboard/blog',
@@ -99,7 +99,10 @@ export const paths = {
       index: '/dashboard/social',
       profile: '/dashboard/social/profile',
       feed: '/dashboard/social/feed'
-    }
+    },
+    srsAdmin: {
+      index: '/dashboard/srs-admin'
+    },
   },
   components: {
     index: '/components',

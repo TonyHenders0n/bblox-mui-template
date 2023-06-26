@@ -55,6 +55,7 @@ const EcommercePage = lazy(() => import('src/pages/dashboard/ecommerce'));
 const FileManagerPage = lazy(() => import('src/pages/dashboard/file-manager'));
 const KanbanPage = lazy(() => import('src/pages/dashboard/kanban'));
 const MailPage = lazy(() => import('src/pages/dashboard/mail'));
+const SRSAdminPage = lazy(() => import('src/pages/dashboard/srs-admin/index'));
 
 export const dashboardRoutes: RouteObject[] = [
   {
@@ -209,7 +210,7 @@ export const dashboardRoutes: RouteObject[] = [
             element: <SocialProfilePage />
           }
         ]
-      },
+      }, 
       {
         path: 'account',
         element: <AccountPage />
@@ -249,7 +250,11 @@ export const dashboardRoutes: RouteObject[] = [
       {
         path: 'mail',
         element: <MailPage />
-      }
+      },
+      {
+        path: 'srs-admin',
+        element: <SRSAdminPage />
+      },
     ]
   }
 ];

@@ -5,6 +5,7 @@ export const en = {
   [tokens.nav.academy]: 'Academy',
   [tokens.nav.account]: 'Account',
   [tokens.nav.analytics]: 'Analytics',
+  [tokens.nav.assignedSchools]: 'Schools', 
   [tokens.nav.auth]: 'Auth',
   [tokens.nav.blog]: 'Blog',
   [tokens.nav.browse]: 'Browse',
@@ -47,5 +48,6 @@ export const en = {
   [tokens.nav.register]: 'Register',
   [tokens.nav.resetPassword]: 'Reset Password',
   [tokens.nav.socialMedia]: 'Social Media',
+  [tokens.nav.srsAdmin]: 'SRS Admin',
   [tokens.nav.verifyCode]: 'Verify Code'
 };

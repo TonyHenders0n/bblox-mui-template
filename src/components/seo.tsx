@@ -10,8 +10,8 @@ export const Seo: FC<SeoProps> = (props) => {
   const { title } = props;
 
   const fullTitle = title
-    ? title + ' | CannRel8'
-    : 'CannRel8';
+    ? title + ' |  SRSProtoType'
+    : ' SRSProtoType';
 
   return (
     <Helmet>

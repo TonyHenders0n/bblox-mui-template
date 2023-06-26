@@ -14,11 +14,12 @@ const Page: PageType = () => {
     <>
       <Seo />
       <main>
-        <HomeHero />
+      <HomeHero />
+        {/* 
         <HomeFeatures />
         <HomeReviews />
         <HomeCta />
-        <HomeFaqs />
+        <HomeFaqs /> */}
       </main>
     </>
   );

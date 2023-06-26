@@ -55,7 +55,7 @@ export const Layout: FC<LayoutProps> = (props) => {
             sx={{ mb: 1 }}
             variant="h4"
           >
-            Welcome to CannRel8!
+            Welcome to  SRSProtoType!
           </Typography>
           <Typography
             color="text.secondary"

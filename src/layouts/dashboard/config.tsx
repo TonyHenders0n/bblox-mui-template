@@ -6,6 +6,7 @@ import HomeSmileIcon from 'src/icons/untitled-ui/duocolor/home-smile';
 import Users03Icon from 'src/icons/untitled-ui/duocolor/users-03';
 import { tokens } from 'src/locales/tokens';
 import { paths } from 'src/paths';
+import { Search } from '@mui/icons-material';
 
 export interface Item {
   disabled?: boolean;
@@ -42,10 +43,21 @@ export const useSections = () => {
           ]
         },
         {
-          subheader: t(tokens.nav.concepts),
+          subheader: t(tokens.nav.assignedSchools),
           items: [
             {
-              title: t(tokens.nav.customers),
+              // title: t(tokens.nav.customers),
+              title: 'Assigned',
+              path: paths.dashboard.academy.index,
+              icon: (
+                <SvgIcon fontSize="small">
+                  <Search />
+                </SvgIcon>
+              )
+            } ,
+            {
+              // title: t(tokens.nav.customers),
+              title: 'Manage',
               path: paths.dashboard.customers.index,
               icon: (
                 <SvgIcon fontSize="small">
@@ -53,8 +65,9 @@ export const useSections = () => {
                 </SvgIcon>
               ),
               items: [
-                {
-                  title: t(tokens.nav.list),
+                { 
+                  // title: t(tokens.nav.list),
+                  title: 'Oakridge Educational Unit',
                   path: paths.dashboard.customers.index
                 },
                 {
@@ -66,6 +79,56 @@ export const useSections = () => {
                   path: paths.dashboard.customers.edit
                 }
               ]
+            } 
+          ]
+        },
+        {
+          subheader: 'Cohort',
+          items: [
+            {
+              // title: t(tokens.nav.customers),
+              title: 'Schools/Facilities',
+              path: paths.dashboard.academy.index,
+              icon: (
+                <SvgIcon fontSize="small">
+                  <Search />
+                </SvgIcon>
+              )
+            } ,
+            {
+              // title: t(tokens.nav.customers),
+              title: 'Summary/Download',
+              path: paths.dashboard.customers.index,
+              icon: (
+                <SvgIcon fontSize="small">
+                  <Users03Icon />
+                </SvgIcon>
+              ) 
+            } 
+          ]
+        } ,
+        {
+          subheader: 'Admin',
+          items: [
+            {
+              // title: t(tokens.nav.customers),
+              title: 'Dashboard',
+              path: paths.dashboard.srsAdmin.index,
+              icon: (
+                <SvgIcon fontSize="small">
+                  <Search />
+                </SvgIcon>
+              )
+            } ,
+            {
+              // title: t(tokens.nav.customers),
+              title: 'Communication',
+              path: paths.dashboard.customers.index,
+              icon: (
+                <SvgIcon fontSize="small">
+                  <Users03Icon />
+                </SvgIcon>
+              ) 
             } 
           ]
         } 

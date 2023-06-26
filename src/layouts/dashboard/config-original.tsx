@@ -72,6 +72,15 @@ export const useSections = () => {
               )
             },
             {
+              title: t(tokens.nav.srsAdmin),
+              path: paths.dashboard.srsAdmin,
+              icon: (
+                <SvgIcon fontSize="small">
+                  <BarChartSquare02Icon />
+                </SvgIcon>
+              )
+            },
+            {
               title: t(tokens.nav.ecommerce),
               path: paths.dashboard.ecommerce,
               icon: (
