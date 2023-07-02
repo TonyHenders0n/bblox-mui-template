@@ -31,7 +31,7 @@ type ChartSeries = {
   data: number[];
 }[];
 
-export interface LineChartWithFilterProps {
+export interface LineChartProps {
   chartSeries: ChartSeries;
   title: string;
   subheader: string;
@@ -40,7 +40,7 @@ export interface LineChartWithFilterProps {
   colorizeChartValues?: ColorizeChartValue[];
 }
 
-export const LineChartWithFilter: FC<LineChartWithFilterProps> = (props) => {
+export const LineChartCard: FC<LineChartProps> = (props) => {
   const { chartSeries, title, value, subheader, chartHeight = 300 } = props;
 
   const theme = useTheme();
@@ -48,39 +48,65 @@ export const LineChartWithFilter: FC<LineChartWithFilterProps> = (props) => {
 
   return (
     <Card>
-      <CardHeader
+      <LineChart
+        chartSeries={chartSeries}
         title={title}
+        value={value}
         subheader={subheader}
-        action={
-          <Chip
-            size="small"
-            sx={{ minWidth: "110px"}}
-            // icon={<LocationOnIcon />}
-            label={value}
-            variant="outlined"
-            // color="primary"
-          />
-        }
+        chartHeight={chartHeight}
       />
-
-      <Stack
-        direction={{ lg: "column" }}
-        padding={1}
-        // spacing={{ lg: 0.1 }}
-        sx={{ width: "100%" }}
-      >
-        <Chart
-          sx={{ width: "100%" }}
-          height={chartHeight}
-          options={chartOptions}
-          series={chartSeries}
-          type="area"
-        />
-      </Stack>
     </Card>
   );
 };
 
-LineChartWithFilter.propTypes = {
+export const LineChart: FC<LineChartProps> = (props) => {
+  const { chartSeries, title, value, subheader, chartHeight = 300 } = props;
+
+  const theme = useTheme();
+  const chartOptions = useChartOptions(theme);
+
+  return (
+    <>
+      <Stack
+        direction={"column"}
+        sx={{ width: "100%" }}
+      >
+        <CardHeader
+          title={title}
+          subheader={subheader}
+          action={
+            <Chip
+              size="small"
+              sx={{ minWidth: "110px" }}
+              // icon={<LocationOnIcon />}
+              label={value}
+              variant="outlined"
+              // color="primary"
+            />
+          }
+        />
+        <Stack
+          direction={{ lg: "column" }}
+          // spacing={{ lg: 0.1 }}
+          sx={{
+            width: "100%",
+            paddingLeft: 1,
+            paddingRight: 1 
+          }}
+        >
+          <Chart
+            sx={{ width: "100%", spacing: 0 }}
+            height={chartHeight}
+            options={chartOptions}
+            series={chartSeries}
+            type="area"
+          />
+        </Stack>
+      </Stack>
+    </>
+  );
+};
+
+LineChartCard.propTypes = {
   chartSeries: PropTypes.array.isRequired,
 };

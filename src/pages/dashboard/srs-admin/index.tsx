@@ -18,9 +18,12 @@ import { useSettings } from "src/hooks/use-settings";
 import { AnalyticsStats } from "src/sections/dashboard/analytics/analytics-stats";
 import type { Page as PageType } from "src/types/page";
 import { ColumnChartWithFilter } from "src/components-new/charts/column-chart/column-chart-with-filter";
-import CircleGuageChart from "src/components-new/charts/guage-chart/circle-guage-chart";
-import { LineChartWithFilter } from "src/components-new/charts/line-chart/line-chart-with-filter";
-import { useState } from 'react';
+import CircleGuageChart, {
+  CircleGuageChartCard,
+} from "src/components-new/charts/guage-chart/circle-guage-chart";
+import { LineChartCard } from "src/components-new/charts/line-chart/line-chart-with-filter";
+import { useState } from "react";
+import { ComboLineAndCircleGuageChart } from "src/components-new/charts/combo-chart/combo-line-and-circle-guage-chart";
 
 const Page: PageType = () => {
   const settings = useSettings();
@@ -30,32 +33,39 @@ const Page: PageType = () => {
 
   const primaryColumnColor = theme.palette.primary.main;
   const secondarChartColor = theme.palette.secondary.main;
-  const localHealthJurisdictionState = useState('All Regions')
-  const [localHj, setLocalHj] =  useState('All Regions')
-  const [localHjValue, setLocalHjValue] =  useState(90)
-  const [cumData, setCumData] =  useState([15, 21, 33, 36, 48, 56, 63, 78, 81, 84, 86, 91])
-  const [switchData, setSwitchData] =  useState(false)
+  const localHealthJurisdictionState = useState("All Regions");
+  const [localHj, setLocalHj] = useState("All Regions");
+  const [localHjValue, setLocalHjValue] = useState(90);
+  const [cumData, setCumData] = useState([
+    15, 21, 33, 36, 48, 56, 63, 78, 81, 84, 86, 91,
+  ]);
+  const [switchData, setSwitchData] = useState(false);
 
-  const localHealthJurisdiction  = 'San Luis Obispo'
+  const localHealthJurisdiction = "San Luis Obispo";
 
-  const cumDataTempAlt1 = [18, 21, 31, 36, 51, 56, 63, 78, 81, 84, 86, 96]
-  const cumDataTempAlt2 = [6, 17, 33, 36, 48, 56, 63, 78, 81, 84, 86, 91]
- 
-  const dataPointSelectionHandler = (event: any, chartContext: any, config: any):void => {
-    const dataPointSelection = config.w.config.series[config.seriesIndex].data[config.dataPointIndex];
-    console.log(`dataPointSelection: ${JSON.stringify(dataPointSelection, null, '\t')}`);
-    setLocalHj(dataPointSelection.x)
-    setLocalHjValue(dataPointSelection.y)
-    if(!switchData) {
-      setCumData(cumDataTempAlt1)
-      setSwitchData(true)
+  const cumDataTempAlt1 = [18, 21, 31, 36, 51, 56, 63, 78, 81, 84, 86, 96];
+  const cumDataTempAlt2 = [6, 17, 33, 36, 48, 56, 63, 78, 81, 84, 86, 91];
+
+  const dataPointSelectionHandler = (
+    event: any,
+    chartContext: any,
+    config: any
+  ): void => {
+    const dataPointSelection =
+      config.w.config.series[config.seriesIndex].data[config.dataPointIndex];
+    console.log(
+      `dataPointSelection: ${JSON.stringify(dataPointSelection, null, "\t")}`
+    );
+    setLocalHj(dataPointSelection.x);
+    setLocalHjValue(dataPointSelection.y);
+    if (!switchData) {
+      setCumData(cumDataTempAlt1);
+      setSwitchData(true);
     } else {
-      setCumData(cumDataTempAlt2)
-      setSwitchData(false)
+      setCumData(cumDataTempAlt2);
+      setSwitchData(false);
     }
-  }
- 
- 
+  };
 
   return (
     <>
@@ -248,6 +258,58 @@ const Page: PageType = () => {
             </Grid>
 
             {/* <!-- Analytics --> */}
+            {/* <Grid
+              xs={12}
+              md={12}
+              lg={12}
+              xl={12}
+            >
+              <ComboLineAndCircleGuageChart
+                title="7th & 8th Grade"
+                subheader="Local Health Jurisdiction"
+                value={localHj}
+                properties={{
+                  circleGuageChart: {
+                    title: "Local Health Jurisdiction",
+                    subheader:
+                      "Percent of students with all requirements met from schools/facilities with reports submitted.",
+                    value: localHj,
+                    currentPercentage: localHjValue,
+                    // value: {localHj},
+                  },
+                  lineChart: {
+                    title: "Cumulative Percent Reported by Date",
+                    subheader: "Local Health Jurisdiction",
+                    value: localHj,
+                    chartSeries: [
+                      {
+                        data: cumData,
+                      },
+                    ],
+                    chartHeight: 225,
+                  },
+                }}
+              />
+            </Grid> */}
+
+            <Grid
+              xs={12}
+              md={7}
+              lg={7}
+              xl={7}
+            >
+              <LineChartCard
+                title="Cumulative Percent Reported by Date"
+                subheader="Local Health Jurisdiction"
+                value={localHj}
+                chartSeries={[
+                  {
+                    data: cumData,
+                  },
+                ]}
+                chartHeight={225}
+              />
+            </Grid>
             <Grid
               xs={12}
               md={5}
@@ -258,30 +320,27 @@ const Page: PageType = () => {
                 chartSeries={[10, 10, 20]}
                 labels={["Linkedin", "Facebook", "Instagram"]}
               /> */}
-              <CircleGuageChart
+              <CircleGuageChartCard
                 title="Immunization Rate by Local Health Juristiction"
                 subheader="Percent of students with all requirements met from schools/facilities with reports submitted."
+                innerTitle='Safest'
                 value={localHj}
-                currentPercentage={localHjValue} 
-              />
-            </Grid>
-            <Grid
-              xs={12}
-              md={7}
-              lg={7}
-              xl={7}
-            >
-              <LineChartWithFilter 
-                title="Cumulative Percent Reported by Date"
-                subheader="Local Health Jurisdiction"
-                value={localHj}
-                chartSeries={[
-                  {
-                    data: cumData,
-                  },
-                ]}
-                chartHeight={225}
-             
+                currentPercentage={localHjValue}
+                colorFunction={(target: any): any => {
+                  const value = target.value/100;
+                  console.log(`Color Value: ${value}`);
+                  if (value < 0.8) {
+                    return "#ED1C24"; //"#009444";
+                  } else if (value >= 0.8 && value <= 0.899) {
+                    return "#FBB040"//"#F9ED32";
+                  } else if (value > 0.899 && value <= 0.949) {
+                    return "#F9ED32"//"#FBB040";
+                  } else if (value >= 0.95) {
+                    return "#009444";
+                  } else {
+                    return "#ED1C24";
+                  }
+                }}
               />
             </Grid>
             <Grid

@@ -4,5 +4,7 @@
         "titleBar.activeBackground": "#074A30",
         "titleBar.activeForeground": "#EFFEF8"
     },
-    "prettier.singleAttributePerLine": true
+    "prettier.singleAttributePerLine": true,
+    "python.envFile": "${workspaceFolder}/.databricks/.databricks.env",
+    "databricks.python.envFile": "${workspaceFolder}/.env"
 }

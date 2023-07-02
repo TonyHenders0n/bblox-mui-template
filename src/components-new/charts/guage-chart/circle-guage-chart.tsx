@@ -33,29 +33,58 @@ export interface CircleGuageChartProps {
   // chartSeries: ChartSeries;
   title: string;
   subheader: string;
+  innerTitle?: string;
   color?: Color;
+  colorFunction?: Function;
   value?: string;
   chartHeight?: number;
   currentPercentage: number;
-  colorizeChartValues?: ColorizeChartValue[];
 }
 
+/**
+ *
+ * @param props
+ * @returns
+ */
+export const CircleGuageChartCard: FC<CircleGuageChartProps> = (props) => {
+  return (
+    <Card>
+      <CircleGuageChart {...props} />
+    </Card>
+  );
+};
+
+/**
+ *
+ * @param props
+ * @returns
+ */
 export const CircleGuageChart: FC<CircleGuageChartProps> = (props) => {
   const {
     title,
     subheader,
     value,
+    innerTitle,
     currentPercentage = 0,
     chartHeight = 230,
+    color,
+    colorFunction,
   } = props;
 
   const theme = useTheme();
   const currentUsage = `${currentPercentage}%`;
-  const chartOptions = useChartOptions(currentUsage, theme);
+  const chartOptions = useChartOptions(
+    currentUsage,
+    theme,
+    innerTitle,
+    color,
+    colorFunction
+  );
+ 
   const chartSeries: ChartSeries = [currentPercentage];
 
   return (
-    <Card>
+    <> 
       <CardHeader
         title={title}
         subheader={subheader}
@@ -71,7 +100,7 @@ export const CircleGuageChart: FC<CircleGuageChartProps> = (props) => {
                 // icon={<LocationOnIcon />}
                 label={value}
                 variant="outlined"
-                // color="primary"
+                color="info"
               />
             </Tooltip>
           </>
@@ -91,6 +120,7 @@ export const CircleGuageChart: FC<CircleGuageChartProps> = (props) => {
               height={chartHeight}
               options={chartOptions}
               series={chartSeries}
+              
               type="radialBar"
             />
           </Box>
@@ -100,29 +130,17 @@ export const CircleGuageChart: FC<CircleGuageChartProps> = (props) => {
           >
             You’ve almost reached your limit
           </Typography> */}
-          <Typography
-            color="text.secondary"
-            variant="body2"
-          >
-            {value} Heatlh Jurisdiction more vulnerable at {currentPercentage}%.
-          </Typography>
+          <Chip
+            sx={{ minWidth: "110px", maxWidth: "110px", fontWeight: 700 }}
+            size="small"
+            // icon={<LocationOnIcon />}
+            label="TDap"
+            variant="outlined" 
+             color="primary"
+          />
         </Stack>
       </CardContent>
-      <Divider />
-      <CardActions sx={{ justifyContent: "flex-end" }}>
-        <Button
-          endIcon={
-            <SvgIcon fontSize="small">
-              <Lightning01Icon />
-            </SvgIcon>
-          }
-          size="small"
-          variant="contained"
-        >
-          View Reports
-        </Button>
-      </CardActions>
-    </Card>
+    </>
   );
 };
 
