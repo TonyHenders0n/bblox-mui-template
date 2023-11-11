@@ -104,7 +104,7 @@ export const Layout: FC<LayoutProps> = (props) => {
                       <Link
                         color="text.primary"
                         component={RouterLink}
-                        href={item.href}
+                        href={item.href?.toString() ?? ""}
                         key={index}
                         variant="subtitle2"
                       >

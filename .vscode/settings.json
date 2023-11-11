@@ -6,5 +6,8 @@
     },
     "prettier.singleAttributePerLine": true,
     "python.envFile": "${workspaceFolder}/.databricks/.databricks.env",
-    "databricks.python.envFile": "${workspaceFolder}/.env"
+    "databricks.python.envFile": "${workspaceFolder}/.env",
+    "cSpell.words": [
+        "Behaviour"
+    ]
 }

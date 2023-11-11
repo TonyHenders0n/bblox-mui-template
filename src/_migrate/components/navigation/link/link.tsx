@@ -21,12 +21,28 @@ export const LinkBehaviour = forwardRef<
   );
 });
 
-export const Link = forwardRef<any, LinkProps>((props, _1) => {
+// export const LinkBehavior = forwardRef<
+// HTMLAnchorElement, 
+//   Omit<Omit<RouterLinkProps, "to">, "href"> & { href: string }
+
+// >((props, ref) => {
+//   const { href, ...other } = props;
+//   return (
+//     <RouterLink
+//       ref={ref}
+//       to={href}
+//       {...other}
+//     />
+//   );
+// });
+
+export const Link = forwardRef<any, LinkProps>((props, ref) => {
   return (
     <MuiLink
-      {...props}
-      {..._1}
       component={LinkBehaviour}
+      ref={ref}
+      {...props}
+      
     />
   );
 });
